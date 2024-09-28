@@ -65,7 +65,7 @@ public class Login {
           boolean checkpasswordcomplexity =PasswordComplexity(submittedPassword);
           
           if(checkUsername&&checkpasswordcomplexity){
-              System.out.println("You have successfully regiatered :"+submittedUsername);
+              System.out.println("Account has successfully been successfuly created:"+submittedUsername);
               return"Registration successful";
           }
           else{
@@ -73,4 +73,14 @@ public class Login {
           }
           return "Registration unsuccessful ";
       }
+      public String Loginuser(String submittedUsername,String submittedPassword){
+          
+          if(submittedUsername.equals(username)&&submittedPassword.equals(password)){
+              return"Welcome:"+firstname+lastname+"It is great to see you again";
+      }
+          else{
+              return" Incorrect Username or password  ,please enter your details again";
+          }
+          
+}
 }
