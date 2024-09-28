@@ -18,7 +18,7 @@ public class Login {
     String submittedPassword;
     
     public boolean checkUserName(String username){
-       // execute login to check username
+       //Verifying username format
        if (submittedUsername.contains("_")&& submittedUsername.length() >=2 && submittedUsername.length()<=5){
            System.out.println("Usename successfully captured");
        
@@ -30,4 +30,17 @@ public class Login {
        }
        
 }
+    public boolean PasswordComplexity(String submittedPassword){
+        
+        if(submittedPassword.length()>=8 && submittedPassword.contains(".[A-Z].") && submittedPassword.contains(".[0-9].") && submittedPassword.contains("&")||submittedPassword.contains("^")||submittedPassword.contains("%")||submittedPassword.contains("$")||submittedPassword.contains("#")||submittedPassword.contains("@")||submittedPassword.contains("!")){
+         
+            System.out.println("Password successfully captured");
+            return true;
+        }
+        else{
+            System.out.print("Password is not correctly formatted,please ensure that the password contains atleast 8 characters,a capital letter,a number and a special character");
+        return false;
+        } 
+    }
+     
 }
