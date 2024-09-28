@@ -17,7 +17,7 @@ public class Login {
     String submittedUsername;
     String submittedPassword;
     
-    public boolean checkUserName(String username){
+    public boolean checkUserName(String submittedusername){
        //Verifying username format
        if (submittedUsername.contains("_")&& submittedUsername.length() >=2 && submittedUsername.length()<=5){
            System.out.println("Usename successfully captured");
@@ -42,5 +42,35 @@ public class Login {
         return false;
         } 
     }
-     
+      public String registeruser(){
+          
+          Scanner scanner=new Scanner(System.in);
+          
+          //Prompting the user of the login system
+          System.out.println("Please enter your Username");
+          submittedUsername=scanner.next();
+          
+          System.out.println("Please enter your Password");
+          submittedPassword=scanner.next();
+          
+          System.out.println("Please enter your firstname");
+          firstname=scanner.next();
+          
+          System.out.println("Please enter your lastname");
+          lastname=scanner.next();
+          
+          System.out.println("Username is:"+submittedUsername);
+          
+          boolean checkUsername = checkUserName(submittedUsername);
+          boolean checkpasswordcomplexity =PasswordComplexity(submittedPassword);
+          
+          if(checkUsername&&checkpasswordcomplexity){
+              System.out.println("You have successfully regiatered :"+submittedUsername);
+              return"Registration successful";
+          }
+          else{
+              System.out.println("Username incorrectly formatted or Passwordcomplexity requirements not met");
+          }
+          return "Registration unsuccessful ";
+      }
 }
