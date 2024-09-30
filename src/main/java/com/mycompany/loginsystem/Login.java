@@ -18,7 +18,7 @@ public class Login {
     String submittedPassword;
     
     public boolean checkUserName(String submittedusername){
-       //Verifying username format
+       //Verify the username format
        if (submittedUsername.contains("_")&& submittedUsername.length() >=2 && submittedUsername.length()<=5){
            System.out.println("Usename successfully captured");
        
@@ -31,7 +31,7 @@ public class Login {
        
 }
     public boolean PasswordComplexity(String submittedPassword){
-        
+        //Regulating the expression for password complexity
         if(submittedPassword.length()>=8 && submittedPassword.contains(".[A-Z].") && submittedPassword.contains(".[0-9].") && submittedPassword.contains("&")||submittedPassword.contains("^")||submittedPassword.contains("%")||submittedPassword.contains("$")||submittedPassword.contains("#")||submittedPassword.contains("@")||submittedPassword.contains("!")){
          
             System.out.println("Password successfully captured");
@@ -43,7 +43,7 @@ public class Login {
         } 
     }
       public String registeruser(){
-          
+          //Creating the scanner for user details
           Scanner scanner=new Scanner(System.in);
           
           //Prompting the user of the login system
@@ -61,6 +61,7 @@ public class Login {
           
           System.out.println("Username is:"+submittedUsername);
           
+          //Validating username and password complexity
           boolean checkUsername = checkUserName(submittedUsername);
           boolean checkpasswordcomplexity =PasswordComplexity(submittedPassword);
           
@@ -82,5 +83,9 @@ public class Login {
               return" Incorrect Username or password  ,please enter your details again";
           }
           
+         
 }
+       public String returnLoginStatus(boolean isLoggedIn){
+              return isLoggedIn? "Login Successful":"Login Failed";
+          }
 }
