@@ -87,7 +87,7 @@ public void testIncorrectlyFormattedUsername() {
     private boolean login(String username, String password) {
         return "user_1".equals(username) && "Ch&&sec@ke99!".equals(password);
     }
-
+    
     @Test
     public void testRegisteruser() {
     }
@@ -99,5 +99,7 @@ public void testIncorrectlyFormattedUsername() {
     @Test
     public void testReturnLoginStatus() {
     }
-    
+  
+   
+
 }
