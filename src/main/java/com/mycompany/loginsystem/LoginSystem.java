@@ -57,21 +57,23 @@ public class LoginSystem {
        
        System.out.print(result);
        
-    
-          
-            if (isLoggedIn) {
+          if (isLoggedIn) {
             JOptionPane.showMessageDialog(null, "Welcome to EasyKanban");
-       // int option = 0;
-       
-       TaskClass Task = new TaskClass();
-       
-        while (true) {
-            String[] options = {"Add Task", "Show Report", "Quit"};
-            int choice = JOptionPane.showOptionDialog(null, "Choose an option", "Menu",
-                    JOptionPane.DEFAULT_OPTION, JOptionPane.INFORMATION_MESSAGE, null, options, options[0]);
 
-            switch (choice) {
-                case 0:
+       TaskClass Task = new TaskClass();
+       // Menu loop for task management
+            while (true) {
+                // Print menu options
+                System.out.println("\nChoose an option:");
+                System.out.println("1. Add Task");
+                System.out.println("2. Show Report (Coming Soon)");
+                System.out.println("3. Quit");
+
+                // Get user input for choice
+                int choice = scanner.nextInt();
+
+           switch (choice) {
+                case 1:
                    int numoftasks = Integer.parseInt(JOptionPane.showInputDialog("How many tasks do you wish to capture"));
 
                     // Task details input from the user
@@ -85,30 +87,23 @@ public class LoginSystem {
                     String developerDetail = JOptionPane.showInputDialog("Enter Developer's Full Name:");
                     int taskDuration = Integer.parseInt(JOptionPane.showInputDialog("Enter Task Duration (hours):"));
 
-                    // Generate the task ID
-                    String taskID = Task.createTaskID(taskName, developerDetail);
-                    JOptionPane.showMessageDialog(null, "Generated Task ID: " + taskID);
-
-                   
-                    String[] choose = {"To Do", "Done", "Doing"};
+                    
+                    // Provide a task to the system
                     String taskStatus = (String) JOptionPane.showInputDialog(null, "Choose a status:", "Task Status",
-                            JOptionPane.QUESTION_MESSAGE, null, choose, choose[0]);
+                    JOptionPane.QUESTION_MESSAGE, null, new String[]{"To Do", "Doing", "Done"}, "To Do");
 
-                    // Provide task details
-                    Task.printTaskDetails(taskStatus, developerDetail, taskName, taskDescription, taskID, taskDuration);
-                    
-                    // Provide task duration to total hours
-                    Task.returnTotalHours(taskDuration);
+                    // Provide a task to task system
+                    Task.addTask(taskName, taskDescription, developerDetail, taskDuration, taskStatus,numoftasks);
                     }
-                    
+                   
                     JOptionPane.showMessageDialog(null, "Total hours for all tasks so far: " + Task.getTotalHours() + " hrs");
                     break;
 
-                case 1:
-                    JOptionPane.showMessageDialog(null, "Coming Soon");
+                case 2:
+                  Task.printTaskDetails();
                     break;
 
-                case 2:
+                case 3:
                     JOptionPane.showMessageDialog(null, "GOODBYE!");
                     System.exit(0);
                     break;
@@ -116,24 +111,10 @@ public class LoginSystem {
                 default:
                     JOptionPane.showMessageDialog(null, "Invalid option, please choose a correct option.");
                     break;
+     
+           }
             }
-        }
-            }
+ }
+          }
     }
-}
-
-            
-    
-
-            
- 
-    
-
-                                        
-                   
-                   
-               
-           
-               
-    
 

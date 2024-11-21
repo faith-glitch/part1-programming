@@ -9,6 +9,7 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import static org.junit.jupiter.api.Assertions.*;
 
+
 /**
  *
  * @author RC_Student_lab
@@ -79,5 +80,4 @@ public class TaskClassTest {
         int[] additionalDurations = {10, 12, 55, 11, 1};
         assertEquals(89, returnTotalHours(additionalDurations));
     }
-
 }
